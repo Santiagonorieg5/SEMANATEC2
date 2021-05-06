@@ -43,7 +43,7 @@ def rectangle(start, end):
 
 def triangle(start, end):
     "Draw triangle from start to end."
-    pass  # TODO
+
 
 def tap(x, y):
     "Store starting point or draw shape."
