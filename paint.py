@@ -1,5 +1,5 @@
 """Paint, for drawing shapes.
-
+#Santiago Noriega Franco A01023652
 Exercises
 
 1. Add a color.
