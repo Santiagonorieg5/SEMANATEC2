@@ -1,5 +1,6 @@
 # Santiago Noriega Franco  A01023652
-#Alvaro Enrique Garcia Espinosa A01781511
+# Alvaro Enrique Garcia Espinosa A01781511
+# Pablo Mauricio Sánchez Villaseñor A01781651
 
 """Pacman, classic arcade game.
 
