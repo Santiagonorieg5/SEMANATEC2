@@ -1,13 +1,14 @@
 # SEMANATEC
 
-FINAL DELIVERY
+Final delivery for our TC1001S course.
 
-SANTIAGO NORIEGA FRANCO A01023652
+Authors:
+	Santiago Noriega Franco A01023652
 
-ÁLVARO ENRIQUE GARCÍA ESPINOSA A01781511
+	Álvaro Enrique García Espinosa A01781511
 
-PABLO MAURICIO SÁNCHEZ VILLASEÑOR A01781651
+	Pablo Mauricio Sánchez Villaseñor A01781651
 
-MODIFICATION OF 2 GAMES
+We will be modifying 2 python games named paint.py and PACKMAN.py to practice our git commands an learn how to colab with other teammates in a single code program.
 
-NEEDED LIBRARIES: FREEGAMES AND TURTLE
+In order to achieve our goal we are going to use the "freegames" and "turtle" libraries.
