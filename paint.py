@@ -1,15 +1,15 @@
-"""Paint, for drawing shapes.
-
-Exercises
-
-1. Add a color.
-2. Complete circle.
-3. Complete rectangle.
-4. Complete triangle.
-5. Add width parameter.
 
 """
+06/05/2021
+Alvaro Garcia
+v.2
 
+
+Paint, for drawing shapes.
+Rectangle, circle, triangle and color(gray) funcionalities were added to this code. 
+
+"""
+import turtle
 from turtle import *
 from freegames import vector
 
@@ -34,16 +34,38 @@ def square(start, end):
     end_fill()
 
 def circle(start, end):
-    "Draw circle from start to end."
-    pass  # TODO
+   
+    r = (end.x - start.x)/2
+    up()
+    goto(start.x + r, start.y)
+    begin_fill()
+    turtle.circle(r)
+    end_fill()
+    
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    for count in range(2):
+        forward(end.x - start.x) 
+        left(90)
+        forward((end.x- start.x)/2)
+        left(90)
+    end_fill()
 
 def triangle(start, end):
     "Draw triangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    for count in range(3):
+        forward(end.x - start.x)
+        left(120)
+    end_fill()
 
 def tap(x, y):
     "Store starting point or draw shape."
@@ -71,6 +93,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('gray'), 'X')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
