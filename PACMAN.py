@@ -1,5 +1,6 @@
 # Santiago Noriega Franco  A01023652
 # Pablo Mauricio Sánchez Villaseñor A01781651
+# Alvaro Garcia A01781511
 
 """Pacman, classic arcade game.
 
