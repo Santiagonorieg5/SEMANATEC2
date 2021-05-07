@@ -2,6 +2,7 @@
 """
 06/05/2021
 Alvaro Garcia
+Santiago Noriega A01023652
 v.2
 
 
@@ -9,18 +10,18 @@ Paint, for drawing shapes.
 Rectangle, circle, triangle and color(gray) funcionalities were added to this code. 
 
 """
-import turtle
+import turtle                           #Import Libraries
 from turtle import *
 from freegames import vector
 
-def line(start, end):
+def line(start, end):                   #Function for a line
     "Draw line from start to end."
     up()
     goto(start.x, start.y)
     down()
     goto(end.x, end.y)
 
-def square(start, end):
+def square(start, end):                 #Function for a square with fill
     "Draw square from start to end."
     up()
     goto(start.x, start.y)
@@ -33,7 +34,7 @@ def square(start, end):
 
     end_fill()
 
-def circle(start, end):
+def circle(start, end):                     #Function for a circle with fill
    
     r = (end.x - start.x)/2
     up()
@@ -43,7 +44,7 @@ def circle(start, end):
     end_fill()
     
 
-def rectangle(start, end):
+def rectangle(start, end):               #Function for a rectangle with fill   
     "Draw rectangle from start to end."
     up()
     goto(start.x, start.y)
@@ -56,7 +57,7 @@ def rectangle(start, end):
         left(90)
     end_fill()
 
-def triangle(start, end):
+def triangle(start, end):               #Function for a triange with fill
     "Draw triangle from start to end."
     up()
     goto(start.x, start.y)
@@ -68,7 +69,7 @@ def triangle(start, end):
     end_fill()
 
 def tap(x, y):
-    "Store starting point or draw shape."
+                                "Store starting point or draw shape."
     start = state['start']
 
     if start is None:
@@ -80,7 +81,7 @@ def tap(x, y):
         state['start'] = None
 
 def store(key, value):
-    "Store value in state at key."
+                                     "Store value in state at key."
     state[key] = value
 
 state = {'start': None, 'shape': line}
@@ -88,7 +89,7 @@ setup(420, 420, 370, 0)
 onscreenclick(tap)
 listen()
 onkey(undo, 'u')
-onkey(lambda: color('black'), 'K')
+onkey(lambda: color('black'), 'K')      #colors
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
