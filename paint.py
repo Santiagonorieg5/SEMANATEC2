@@ -2,7 +2,7 @@
 """
 06/05/2021
 Alvaro Garcia
-
+v.2
 
 
 Paint, for drawing shapes.
