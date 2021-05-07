@@ -3,29 +3,20 @@
 # Alvaro Garcia A01781511
 
 """Pacman, classic arcade game.
-
-Exercises
-
-1. Change the board.
-2. Change the number of ghosts.
-3. Change where pacman starts.
-4. Make the ghosts faster/slower.
-5. Make the ghosts smarter.
-
 """
 
-from random import choice
+from random import choice               #import Libraries
 from turtle import *
 from freegames import floor, vector
 
 state = {'score': 0}
 path = Turtle(visible=False)
-writer = Turtle(visible=False)
+writer = Turtle(visible=False)            #declare board and initial positions of elements
 aim = vector(5, 0)
-pacman = vector(-10, -40)
+pacman = vector(-10, -40)                   #(x,y) starting position
 ghosts = [
     [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
+    [vector(-180, -160), vector(0, 5)],     #number of ghosts
     [vector(100, 160), vector(0, -5)],
 ]
 tiles = [
@@ -36,7 +27,7 @@ tiles = [
     0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0,
     0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0,
     0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-    0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+    0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0,         #Board 1 means path 0 means wall
     0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
     0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0,
     0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0,
@@ -52,7 +43,7 @@ tiles = [
 ]
 
 def square(x, y):
-    "Draw square using path at (x, y)."
+                            "Draw square using path at (x, y)."
     path.up()
     path.goto(x, y)
     path.down()
@@ -65,14 +56,14 @@ def square(x, y):
     path.end_fill()
 
 def offset(point):
-    "Return offset of point in tiles."
+                                             "Return offset of point in tiles."
     x = (floor(point.x, 20) + 200) / 20
     y = (180 - floor(point.y, 20)) / 20
     index = int(x + y * 20)
     return index
 
 def valid(point):
-    "Return True if point is valid in tiles."
+                                            "Return True if point is valid in tiles." #Define walls and borders
     index = offset(point)
 
     if tiles[index] == 0:
@@ -85,7 +76,7 @@ def valid(point):
 
     return point.x % 20 == 0 or point.y % 20 == 0
 
-def world():
+def world():                            #function that makes turtle draw the board
     "Draw world using path."
     bgcolor('black')
     path.color('blue')
@@ -104,9 +95,9 @@ def world():
                 path.dot(2, 'white')
 
 def move():
-    "Move pacman and all ghosts."
-    writer.undo()
-    writer.write(state['score'])
+                                        "Move pacman and all ghosts."
+    writer.undo()       
+    writer.write(state['score'])            #Pacman moves with keys
 
     clear()
 
@@ -126,20 +117,20 @@ def move():
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
 
-    for point, course in ghosts:
+    for point, course in ghosts:            #ghosts move with random algorithm
         if valid(point + course):
             point.move(course)
         else:
             if pacman.y == point.y:
                 options=[ vector(-20, 0),
-                vector(20, 0), ]
-            elif pacman.x==point.x:
+                vector(20, 0), ]                #if the Pacman and the gohst have the same x or y coordinates,
+            elif pacman.x==point.x:                 # the ghost will onli move in the other direction
                 options=[vector(0, 20),
                 vector(0, -20)]
             else:
                 options = [
                 vector(0, 20),
-                vector(0, -20),
+                vector(0, -20),         #Speed vectors and movement options
                 vector(-20, 0),
                 vector(20, 0), ]
             plan = choice(options)
@@ -158,7 +149,7 @@ def move():
     ontimer(move, 100)
 
 def change(x, y):
-    "Change pacman aim if valid."
+                                                 "Change pacman aim if valid."
     if valid(pacman + vector(x, y)):
         aim.x = x
         aim.y = y
