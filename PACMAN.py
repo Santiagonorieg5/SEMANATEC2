@@ -1,4 +1,4 @@
-#Santiago Noriega Franco  A01023652
+# Santiago Noriega Franco  A01023652
 
 
 """Pacman, classic arcade game.
